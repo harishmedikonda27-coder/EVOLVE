@@ -1,0 +1,10 @@
+{
+  "checkpoint_id": "ckpt_AdaptiveFrontier_L04_stopped",
+  "metadata": {
+    "task": "AdaptiveFrontier_L04"
+  },
+  "active_module_ids": [
+    "module_A"
+  ],
+  "has_phase2": false
+}

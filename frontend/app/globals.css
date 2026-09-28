@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #040a14;
+  --card: #0a1121;
+  --border: #1a2744;
+}
+
+body {
+  background-color: var(--background);
+  color: #f1f5f9;
+  overflow-x: hidden;
+  font-feature-settings: "tnum" on, "lnum" on;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3f5e;
+}
+
+/* Glow utilities */
+.text-glow-blue {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+}
+.text-glow-emerald {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
+}
+.text-glow-amber {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+}
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+}
+
+/* Tabular numbers for metrics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Neural Network Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes travelingPulse {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+  }
+}
+
+.animate-traveling-pulse {
+  stroke-dasharray: 4 2000; /* small pulse, huge gap to avoid repeating on the same short line */
+  animation: travelingPulse linear infinite;
+}
+
+/* Reduces motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow, .animate-traveling-pulse {
+    animation: none;
+  }
+}

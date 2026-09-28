@@ -1,0 +1,65 @@
+{
+  "experiment_id": "EXP_SMOKE_TEST",
+  "condition": "LEARNED_EVOLVE",
+  "seed": 42,
+  "tasks": [
+    {
+      "task_id": "task_1",
+      "steps_taken": 30,
+      "final_performance": 0.800000000000001,
+      "forgetting": 0.0,
+      "retention": 1.0
+    },
+    {
+      "task_id": "task_2",
+      "steps_taken": 50,
+      "final_performance": 4.625929269271485e-15,
+      "forgetting": 0.0,
+      "retention": 0.800000000000001
+    }
+  ],
+  "interventions": [],
+  "ood_events": [],
+  "plasticity_probes": [
+    {
+      "initial_perf": 0.3571428571428602,
+      "final_perf": 0.3571428571428602,
+      "improvement": 0.0,
+      "auc": 0.0,
+      "slope": 0.0
+    },
+    {
+      "initial_perf": 0.3571428571428602,
+      "final_perf": 0.3571428571428602,
+      "improvement": 0.0,
+      "auc": 0.0,
+      "slope": 0.0
+    }
+  ],
+  "eval_matrix": {
+    "10": {
+      "task_1": 0.800000000000001
+    },
+    "20": {
+      "task_1": 0.800000000000001
+    },
+    "30": {
+      "task_1": 0.800000000000001
+    },
+    "40": {
+      "task_2": 4.625929269271485e-15
+    },
+    "50": {
+      "task_2": 4.625929269271485e-15
+    },
+    "60": {
+      "task_2": 4.625929269271485e-15
+    },
+    "70": {
+      "task_2": 4.625929269271485e-15
+    },
+    "80": {
+      "task_2": 4.625929269271485e-15
+    }
+  }
+}

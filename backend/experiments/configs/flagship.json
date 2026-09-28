@@ -1,0 +1,66 @@
+{
+  "experiment_id": "EXP_FLAGSHIP_001",
+  "seeds": [42, 100, 2026],
+  "max_steps_per_task": 15000,
+  "eval_freq": 500,
+  "plasticity_probe_budget": 500,
+  "max_param_budget": 50000,
+  "consequence_horizon": 1,
+  "output_dir": "storage/experiments/flagship",
+  "baselines": [
+    {
+      "condition": "FIXED",
+      "mode": "none",
+      "random": false
+    },
+    {
+      "condition": "RANDOM_VALID_ACTION",
+      "mode": "random",
+      "random": true
+    },
+    {
+      "condition": "DETERMINISTIC_EVOLVE",
+      "mode": "deterministic",
+      "random": false
+    },
+    {
+      "condition": "LEARNED_EVOLVE",
+      "mode": "learned",
+      "random": false
+    }
+  ],
+  "task_sequence": [
+    {
+      "level_id": "task_1",
+      "task_variant": "Navigation",
+      "difficulty_level": 1,
+      "seed": 101,
+      "ood_shift": false,
+      "shift_magnitude": 0.0
+    },
+    {
+      "level_id": "task_2",
+      "task_variant": "Memory",
+      "difficulty_level": 10,
+      "seed": 102,
+      "ood_shift": false,
+      "shift_magnitude": 0.0
+    },
+    {
+      "level_id": "task_3",
+      "task_variant": "Dynamics",
+      "difficulty_level": 20,
+      "seed": 103,
+      "ood_shift": true,
+      "shift_magnitude": 0.3
+    },
+    {
+      "level_id": "task_4",
+      "task_variant": "Navigation",
+      "difficulty_level": 40,
+      "seed": 104,
+      "ood_shift": false,
+      "shift_magnitude": 0.0
+    }
+  ]
+}

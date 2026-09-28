@@ -1,0 +1,12 @@
+experiment: demo_hardened
+task_sequence: [1, 2, 3] # Very small number of levels
+allow_growth: true
+trigger: evidence_driven
+growth_budget: 3
+cooldown_steps: 10
+validation_budget: 10
+plasticity_budget: 10
+max_steps: 200 # Short training budget
+eval_freq: 50
+buffer_capacity: 500 # bounded replay
+seed: 42 # deterministic seed

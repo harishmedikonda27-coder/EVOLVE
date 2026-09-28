@@ -1,0 +1,59 @@
+project: EVOLVE
+version: 1.0.0
+device: auto
+
+brain:
+  obs_dim: 16
+  latent_dim: 32
+  module_dim: 64
+  action_dim: 4
+  initial_modules: 1
+
+controller:
+  evaluation_interval: 200
+  need_weights:
+    performance_gap: 0.35
+    stagnation: 0.25
+    novelty: 0.20
+    interference: 0.30
+    cost: 0.15
+  thresholds:
+    adapt: 0.25
+    grow: 0.55
+    prune: 0.10
+
+mutation:
+  growth_budget: 3
+  cooldown_steps: 150
+  validation_budget: 150
+
+acceptance:
+  min_new_task_gain: 0.10
+  min_old_task_retention: 0.85
+  max_structural_cost: 0.50
+
+training:
+  algorithm: DQN
+  learning_rate: 0.001
+  gamma: 0.99
+  batch_size: 32
+  buffer_capacity: 10000
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay: 0.998
+  target_update_freq: 100
+  steps_A: 3000
+  steps_B: 3000
+  evaluation_episodes: 10
+
+environment:
+  grid_size: [8, 8]
+  env_a:
+    num_obstacles: 8
+    hazards: false
+    moving_obstacles: false
+  env_b:
+    num_obstacles: 12
+    hazards: true
+    moving_obstacles: true
+  max_steps: 200

@@ -1,0 +1,12 @@
+{
+  "checkpoint_id": "ckpt_AdaptiveFrontier_L01",
+  "metadata": {
+    "task": "AdaptiveFrontier_L01"
+  },
+  "active_module_ids": [
+    "module_A",
+    "module_c7b543",
+    "module_7141a8"
+  ],
+  "has_phase2": false
+}

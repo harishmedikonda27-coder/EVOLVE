@@ -1,0 +1,12 @@
+{
+    "git_commit": "N/A",
+    "repository_version": "2.0-research",
+    "python_version": "3.11.9",
+    "pytorch_version": "2.3.1+cu121",
+    "cuda_version": "12.1",
+    "gpu": "NVIDIA GeForce RTX 3050 A Laptop GPU",
+    "os": "Windows-10-10.0.26200-SP0",
+    "config_hash": "7eac5225b2b34e2904fc26d90b7fc834ba7a84f6800e43d15b369e36f6fb1907",
+    "environment_hash": "b5855b44ae5e59ef6fbe6f454926a36e150b678d33ee4d9afaf8b808877219dd",
+    "experiment_hash": "5713aebd014299e34fa2ca117bb17edbf990d09e894a8c3917512d4a7ab719b8"
+}

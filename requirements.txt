@@ -1,0 +1,34 @@
+# Core Scientific & ML Stack
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+
+# Deep Learning (PyTorch)
+torch
+torchvision
+torchaudio
+
+# Reinforcement Learning & Simulation
+gymnasium
+
+# Backend Infrastructure & Persistence
+fastapi
+httpx
+uvicorn[standard]
+pydantic
+pydantic-settings
+sqlalchemy
+aiosqlite
+python-multipart
+websockets
+
+# Utilities & Testing
+PyYAML
+tqdm
+rich
+psutil
+pytest
+pytest-asyncio

@@ -1,0 +1,48 @@
+{
+  "active_module_count": 1,
+  "total_module_count": 1,
+  "total_parameter_count": 13893,
+  "nodes": [
+    {
+      "id": "encoder",
+      "type": "encoder",
+      "input_dim": 16,
+      "output_dim": 32
+    },
+    {
+      "id": "router",
+      "type": "router",
+      "input_dim": 32,
+      "output_dim": 1
+    },
+    {
+      "id": "module_A",
+      "type": "module",
+      "status": "active",
+      "input_dim": 32,
+      "output_dim": 64,
+      "parameter_count": 6272,
+      "utilization": 0.0,
+      "created_step": 0
+    },
+    {
+      "id": "head",
+      "type": "head",
+      "input_dim": 64,
+      "output_dim": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": "router",
+      "target": "module_A"
+    },
+    {
+      "source": "module_A",
+      "target": "head"
+    }
+  ],
+  "active_ids": [
+    "module_A"
+  ]
+}

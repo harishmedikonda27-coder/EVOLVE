@@ -1,0 +1,11 @@
+{
+  "checkpoint_id": "ckpt_MemoryObservation_L2_stopped",
+  "metadata": {
+    "task": "MemoryObservation_L2"
+  },
+  "active_module_ids": [
+    "module_A",
+    "module_a1bd84",
+    "module_97eaf0"
+  ]
+}

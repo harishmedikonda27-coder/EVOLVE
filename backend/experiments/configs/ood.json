@@ -1,0 +1,50 @@
+{
+  "experiment_id": "EXP_OOD",
+  "seeds": [42, 123, 2026],
+  "max_steps_per_task": 2000,
+  "eval_freq": 100,
+  "plasticity_probe_budget": 0,
+  "max_param_budget": 50000,
+  "consequence_horizon": 1,
+  "output_dir": "storage/experiments/ood",
+  "baselines": [
+    {
+      "condition": "FIXED",
+      "mode": "none",
+      "random": false
+    },
+    {
+      "condition": "RANDOM_VALID_ACTION",
+      "mode": "random",
+      "random": true
+    },
+    {
+      "condition": "DETERMINISTIC_EVOLVE",
+      "mode": "deterministic",
+      "random": false
+    },
+    {
+      "condition": "LEARNED_EVOLVE",
+      "mode": "learned",
+      "random": false
+    }
+  ],
+  "task_sequence": [
+    {
+      "level_id": "train_dist",
+      "task_variant": "Dynamics",
+      "difficulty_level": 3,
+      "seed": 201,
+      "ood_shift": false,
+      "shift_magnitude": 0.0
+    },
+    {
+      "level_id": "deploy_dist_shifted",
+      "task_variant": "Dynamics",
+      "difficulty_level": 3,
+      "seed": 201,
+      "ood_shift": true,
+      "shift_magnitude": 0.8
+    }
+  ]
+}

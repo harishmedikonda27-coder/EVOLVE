@@ -1,0 +1,4 @@
+experiment: fixed_replay
+task_sequence: [A, B, A]
+allow_growth: false
+replay_ratio: 0.25

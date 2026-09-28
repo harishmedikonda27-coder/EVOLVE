@@ -1,0 +1,74 @@
+{
+  "experiment_id": "EXP_FORGETTING",
+  "experiment_generation": "post_harness_repair_v1",
+  "condition": "LEARNED_EVOLVE",
+  "seed": 42,
+  "tasks": [
+    {
+      "task_id": "task_1",
+      "steps_taken": 600,
+      "final_performance": 0.6640000000000009,
+      "forgetting": 0.0,
+      "retention": 1.0
+    },
+    {
+      "task_id": "task_2",
+      "steps_taken": 200,
+      "final_performance": 0.800000000000001,
+      "forgetting": 0.0,
+      "retention": 0.6640000000000009
+    },
+    {
+      "task_id": "task_3",
+      "steps_taken": 200,
+      "final_performance": 0.800000000000001,
+      "forgetting": 0.0,
+      "retention": 0.732000000000001
+    },
+    {
+      "task_id": "task_4",
+      "steps_taken": 200,
+      "final_performance": 0.800000000000001,
+      "forgetting": 0.0,
+      "retention": 0.7546666666666676
+    }
+  ],
+  "interventions": [
+    {
+      "task_id": "task_1",
+      "step": 600,
+      "action": "REWIRE",
+      "status": "ROLLBACK",
+      "topology_before": 13893,
+      "topology_after": 13893,
+      "modules_before": 1,
+      "modules_after": 1,
+      "intervention_id": "inv_100_REWIRE"
+    }
+  ],
+  "ood_events": [],
+  "plasticity_probes": [],
+  "eval_matrix": {
+    "100": {
+      "task_1": 0.6640000000000009
+    },
+    "700": {
+      "task_2": 0.800000000000001
+    },
+    "800": {
+      "task_2": 0.800000000000001
+    },
+    "900": {
+      "task_3": 0.800000000000001
+    },
+    "1000": {
+      "task_3": 0.800000000000001
+    },
+    "1100": {
+      "task_4": 0.800000000000001
+    },
+    "1200": {
+      "task_4": 0.800000000000001
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "checkpoint_id": "ckpt_MemoryObservation_L0",
+  "metadata": {
+    "task": "MemoryObservation_L0"
+  },
+  "active_module_ids": [
+    "module_A"
+  ]
+}

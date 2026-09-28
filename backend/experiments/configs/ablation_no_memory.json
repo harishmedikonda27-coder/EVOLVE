@@ -1,0 +1,35 @@
+{
+  "experiment_id": "EXP_ABLATION_NOMEM_001",
+  "seeds": [42, 100],
+  "max_steps_per_task": 10000,
+  "eval_freq": 500,
+  "plasticity_probe_budget": 500,
+  "max_param_budget": 50000,
+  "consequence_horizon": 0, 
+  "output_dir": "storage/experiments/ablations",
+  "baselines": [
+    {
+      "condition": "LEARNED_EVOLVE_NO_MEMORY",
+      "mode": "learned",
+      "random": false
+    }
+  ],
+  "task_sequence": [
+    {
+      "level_id": "task_1",
+      "task_variant": "Navigation",
+      "difficulty_level": 5,
+      "seed": 201,
+      "ood_shift": false,
+      "shift_magnitude": 0.0
+    },
+    {
+      "level_id": "task_2",
+      "task_variant": "Dynamics",
+      "difficulty_level": 15,
+      "seed": 202,
+      "ood_shift": true,
+      "shift_magnitude": 0.2
+    }
+  ]
+}

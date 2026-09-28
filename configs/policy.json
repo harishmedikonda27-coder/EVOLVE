@@ -1,0 +1,39 @@
+{
+    "need_weights": {
+        "performance_gap": 0.4,
+        "stagnation": 0.3,
+        "novelty": 0.15,
+        "interference": 0.15,
+        "cost": 0.2
+    },
+    "mutation_thresholds": {
+        "adapt": 0.25,
+        "grow": 0.55,
+        "prune": 0.1
+    },
+    "mutation_cooldown": 150,
+    "evidence_change_thresholds": {
+        "need_score_delta": 0.1,
+        "performance_delta": 0.1,
+        "fingerprint_ban_duration": 300
+    },
+    "structural_budgets": {
+        "max_modules": 5,
+        "max_parameters": 50000,
+        "min_module_age": 1000
+    },
+    "minimum_mutation_interval": 500,
+    "verification_budget": 500,
+    "acceptance_thresholds": {
+        "min_new_task_gain": 0.1,
+        "min_old_task_retention": 0.85
+    },
+    "retention_threshold": 0.85,
+    "convergence_threshold": 0.95,
+    "convergence_window": 5,
+    "ood_threshold": 2.0,
+    "plasticity_thresholds": {
+        "active": 0.5,
+        "degraded": 0.1
+    }
+}

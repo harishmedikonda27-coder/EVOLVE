@@ -1,0 +1,6 @@
+experiment: evolve
+task_sequence: [A, B, A]
+allow_growth: true
+trigger: evidence_driven
+growth_budget: 3
+cooldown_steps: 200

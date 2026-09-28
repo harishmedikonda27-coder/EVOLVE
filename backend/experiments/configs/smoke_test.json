@@ -1,0 +1,35 @@
+{
+  "experiment_id": "EXP_SMOKE_TEST",
+  "seeds": [42],
+  "max_steps_per_task": 50,
+  "eval_freq": 10,
+  "plasticity_probe_budget": 10,
+  "max_param_budget": 50000,
+  "consequence_horizon": 1,
+  "output_dir": "storage/experiments/smoke",
+  "baselines": [
+    {
+      "condition": "LEARNED_EVOLVE",
+      "mode": "learned",
+      "random": false
+    }
+  ],
+  "task_sequence": [
+    {
+      "level_id": "task_1",
+      "task_variant": "Navigation",
+      "difficulty_level": 1,
+      "seed": 101,
+      "ood_shift": false,
+      "shift_magnitude": 0.0
+    },
+    {
+      "level_id": "task_2",
+      "task_variant": "Dynamics",
+      "difficulty_level": 5,
+      "seed": 102,
+      "ood_shift": false,
+      "shift_magnitude": 0.0
+    }
+  ]
+}

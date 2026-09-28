@@ -1,0 +1,86 @@
+{
+  "active_module_count": 3,
+  "total_module_count": 3,
+  "total_parameter_count": 26503,
+  "nodes": [
+    {
+      "id": "encoder",
+      "type": "encoder",
+      "input_dim": 16,
+      "output_dim": 32
+    },
+    {
+      "id": "router",
+      "type": "router",
+      "input_dim": 32,
+      "output_dim": 3
+    },
+    {
+      "id": "module_A",
+      "type": "module",
+      "status": "active",
+      "input_dim": 32,
+      "output_dim": 64,
+      "parameter_count": 6272,
+      "utilization": 0.0,
+      "created_step": 0
+    },
+    {
+      "id": "module_5ff454",
+      "type": "module",
+      "status": "active",
+      "input_dim": 32,
+      "output_dim": 64,
+      "parameter_count": 6272,
+      "utilization": 0.0,
+      "created_step": 1600
+    },
+    {
+      "id": "module_6111e8",
+      "type": "module",
+      "status": "active",
+      "input_dim": 32,
+      "output_dim": 64,
+      "parameter_count": 6272,
+      "utilization": 0.0,
+      "created_step": 2500
+    },
+    {
+      "id": "head",
+      "type": "head",
+      "input_dim": 64,
+      "output_dim": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": "router",
+      "target": "module_A"
+    },
+    {
+      "source": "module_A",
+      "target": "head"
+    },
+    {
+      "source": "router",
+      "target": "module_5ff454"
+    },
+    {
+      "source": "module_5ff454",
+      "target": "head"
+    },
+    {
+      "source": "router",
+      "target": "module_6111e8"
+    },
+    {
+      "source": "module_6111e8",
+      "target": "head"
+    }
+  ],
+  "active_ids": [
+    "module_A",
+    "module_5ff454",
+    "module_6111e8"
+  ]
+}

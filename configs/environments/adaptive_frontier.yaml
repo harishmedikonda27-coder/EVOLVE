@@ -1,0 +1,78 @@
+# EVOLVE WORLD - ADAPTIVE FRONTIER CONFIGURATION
+# This is the single, unified environment for the final system.
+name: "AdaptiveFrontierWorld"
+description: "A continuous, progressive environment for studying structural adaptation."
+action_space: 5  # UP, DOWN, LEFT, RIGHT, STAY
+observation_space: 16
+
+# Base Level Defaults
+defaults:
+  grid_size: 6
+  obstacle_density: 0.0
+  target_distance: 4
+  resource_required: false
+  gate_required: false
+  hazard_density: 0.0
+  dynamic_terrain_density: 0.0
+  transition_uncertainty: 0.0
+  cue_duration: 0
+
+# Progression Config (1-30)
+phases:
+  - phase: 1
+    name: "FOUNDATION"
+    levels: [1, 5]
+    grid_size: 6
+    obstacle_density: [0.0, 0.1]
+    target_distance: [2, 4]
+
+  - phase: 2
+    name: "SPATIAL_PRESSURE"
+    levels: [6, 10]
+    grid_size: [8, 10]
+    obstacle_density: [0.1, 0.2]
+    target_distance: [4, 6]
+
+  - phase: 3
+    name: "TEMPORAL_PRESSURE"
+    levels: [11, 15]
+    grid_size: [8, 10]
+    obstacle_density: [0.1, 0.2]
+    target_distance: [4, 6]
+    resource_required: true
+    gate_required: true
+    cue_duration: [4, 10]
+
+  - phase: 4
+    name: "DYNAMIC_PRESSURE"
+    levels: [16, 20]
+    grid_size: [10, 12]
+    obstacle_density: [0.15, 0.25]
+    target_distance: [5, 7]
+    hazard_density: [0.05, 0.1]
+    dynamic_terrain_density: [0.1, 0.2]
+    transition_uncertainty: [0.05, 0.15]
+
+  - phase: 5
+    name: "COMBINED_PRESSURE"
+    levels: [21, 30]
+    grid_size: [10, 12]
+    obstacle_density: [0.15, 0.25]
+    target_distance: [6, 8]
+    resource_required: true
+    gate_required: true
+    hazard_density: [0.05, 0.1]
+    dynamic_terrain_density: [0.1, 0.2]
+    transition_uncertainty: [0.05, 0.15]
+    cue_duration: [3, 8]
+
+ood_distribution:
+  grid_size: [14, 16]
+  obstacle_density: [0.30, 0.40]
+  target_distance: [8, 12]
+  resource_required: true
+  gate_required: true
+  hazard_density: [0.15, 0.20]
+  dynamic_terrain_density: [0.20, 0.30]
+  transition_uncertainty: [0.20, 0.30]
+  cue_duration: [1, 3]

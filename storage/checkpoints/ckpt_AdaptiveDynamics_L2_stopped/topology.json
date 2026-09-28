@@ -1,0 +1,105 @@
+{
+  "active_module_count": 4,
+  "total_module_count": 4,
+  "total_parameter_count": 32808,
+  "nodes": [
+    {
+      "id": "encoder",
+      "type": "encoder",
+      "input_dim": 16,
+      "output_dim": 32
+    },
+    {
+      "id": "router",
+      "type": "router",
+      "input_dim": 32,
+      "output_dim": 4
+    },
+    {
+      "id": "module_A",
+      "type": "module",
+      "status": "active",
+      "input_dim": 32,
+      "output_dim": 64,
+      "parameter_count": 6272,
+      "utilization": 0.0,
+      "created_step": 0
+    },
+    {
+      "id": "module_80b3d2",
+      "type": "module",
+      "status": "active",
+      "input_dim": 32,
+      "output_dim": 64,
+      "parameter_count": 6272,
+      "utilization": 0.0,
+      "created_step": 2500
+    },
+    {
+      "id": "module_2cfce2",
+      "type": "module",
+      "status": "active",
+      "input_dim": 32,
+      "output_dim": 64,
+      "parameter_count": 6272,
+      "utilization": 0.0,
+      "created_step": 3000
+    },
+    {
+      "id": "module_835baf",
+      "type": "module",
+      "status": "active",
+      "input_dim": 32,
+      "output_dim": 64,
+      "parameter_count": 6272,
+      "utilization": 0.0,
+      "created_step": 10500
+    },
+    {
+      "id": "head",
+      "type": "head",
+      "input_dim": 64,
+      "output_dim": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": "router",
+      "target": "module_A"
+    },
+    {
+      "source": "module_A",
+      "target": "head"
+    },
+    {
+      "source": "router",
+      "target": "module_80b3d2"
+    },
+    {
+      "source": "module_80b3d2",
+      "target": "head"
+    },
+    {
+      "source": "router",
+      "target": "module_2cfce2"
+    },
+    {
+      "source": "module_2cfce2",
+      "target": "head"
+    },
+    {
+      "source": "router",
+      "target": "module_835baf"
+    },
+    {
+      "source": "module_835baf",
+      "target": "head"
+    }
+  ],
+  "active_ids": [
+    "module_A",
+    "module_80b3d2",
+    "module_2cfce2",
+    "module_835baf"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "checkpoint_id": "ckpt_AdaptiveDynamics_L6",
+  "metadata": {
+    "task": "AdaptiveDynamics_L6"
+  },
+  "active_module_ids": [
+    "module_A",
+    "module_5ff454",
+    "module_6111e8",
+    "module_7f1dff",
+    "module_fb109c"
+  ]
+}

@@ -1,0 +1,5 @@
+experiment: always_grow
+task_sequence: [A, B, A]
+allow_growth: true
+trigger: force_on_shift
+growth_budget: 1

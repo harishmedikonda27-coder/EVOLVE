@@ -1,0 +1,79 @@
+[
+  {
+    "experiment": "forgetting",
+    "expected_runs": 0,
+    "found_runs": 12,
+    "valid_runs": 12,
+    "failed_runs": 0,
+    "missing_runs": 0,
+    "duplicate_runs": 0,
+    "metric_integrity": "UNKNOWN",
+    "aggregation_status": "UNKNOWN"
+  },
+  {
+    "experiment": "ood",
+    "expected_runs": 0,
+    "found_runs": 12,
+    "valid_runs": 12,
+    "failed_runs": 0,
+    "missing_runs": 0,
+    "duplicate_runs": 0,
+    "metric_integrity": "UNKNOWN",
+    "aggregation_status": "UNKNOWN"
+  },
+  {
+    "experiment": "plasticity",
+    "expected_runs": 0,
+    "found_runs": 12,
+    "valid_runs": 12,
+    "failed_runs": 0,
+    "missing_runs": 0,
+    "duplicate_runs": 0,
+    "metric_integrity": "UNKNOWN",
+    "aggregation_status": "UNKNOWN"
+  },
+  {
+    "experiment": "learned_policy",
+    "expected_runs": 0,
+    "found_runs": 12,
+    "valid_runs": 12,
+    "failed_runs": 0,
+    "missing_runs": 0,
+    "duplicate_runs": 0,
+    "metric_integrity": "UNKNOWN",
+    "aggregation_status": "UNKNOWN"
+  },
+  {
+    "experiment": "consequence",
+    "expected_runs": 0,
+    "found_runs": 12,
+    "valid_runs": 12,
+    "failed_runs": 0,
+    "missing_runs": 0,
+    "duplicate_runs": 0,
+    "metric_integrity": "UNKNOWN",
+    "aggregation_status": "UNKNOWN"
+  },
+  {
+    "experiment": "ablation_no_memory",
+    "expected_runs": 0,
+    "found_runs": 0,
+    "valid_runs": 0,
+    "failed_runs": 0,
+    "missing_runs": 0,
+    "duplicate_runs": 0,
+    "metric_integrity": "UNKNOWN",
+    "aggregation_status": "UNKNOWN"
+  },
+  {
+    "experiment": "flagship",
+    "expected_runs": 0,
+    "found_runs": 12,
+    "valid_runs": 12,
+    "failed_runs": 0,
+    "missing_runs": 0,
+    "duplicate_runs": 0,
+    "metric_integrity": "UNKNOWN",
+    "aggregation_status": "UNKNOWN"
+  }
+]

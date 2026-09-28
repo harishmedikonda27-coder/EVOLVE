@@ -1,0 +1,257 @@
+'use client';
+import React, { useState, useMemo } from 'react';
+import { TopologySnapshot, NodeInfo } from '../types';
+import { ModuleInspectionPanel } from './ModuleInspectionPanel';
+
+interface BrainTopologyProps {
+  topology: TopologySnapshot;
+}
+
+interface SubNode {
+  id: string; // e.g. "encoder_0"
+  parent: NodeInfo | null;
+  layerIdx: number;
+  subIdx: number;
+  totalInLayer: number;
+  x: number;
+  y: number;
+  label?: string; // only for the middle node of the layer if we want a label
+  groupName: string;
+}
+
+interface Edge {
+  sourceId: string;
+  targetId: string;
+  x1: number; y1: number;
+  x2: number; y2: number;
+}
+
+export const BrainTopology: React.FC<BrainTopologyProps> = ({ topology }) => {
+  const [selectedNode, setSelectedNode] = useState<{ node: NodeInfo, x: number, y: number } | null>(null);
+
+  const { subNodes, edges } = useMemo(() => {
+    const sNodes: SubNode[] = [];
+    const sEdges: Edge[] = [];
+
+    // Separate nodes by layer
+    const encoder = topology.nodes.find(n => n.type === 'encoder');
+    const router = topology.nodes.find(n => n.type === 'router');
+    const modules = topology.nodes.filter(n => n.type === 'module');
+    const head = topology.nodes.find(n => n.type === 'head');
+
+    // Layout configuration
+    const layerXs = {
+      input: 5,
+      encoder: 20,
+      router: 35,
+      modules: 55, // base X for modules
+      head: 80,
+      output: 95
+    };
+
+    const addSubNodes = (groupName: string, parentNode: NodeInfo | null, count: number, x: number, centerY: number, spacing: number, labelBase: string) => {
+      const added: SubNode[] = [];
+      for (let i = 0; i < count; i++) {
+        const y = centerY + (i - (count - 1) / 2) * spacing;
+        let label = undefined;
+        // Place label roughly below the bottom-most node of the group
+        if (i === count - 1) label = labelBase;
+        
+        const sn: SubNode = {
+          id: `${groupName}_${i}`,
+          parent: parentNode,
+          layerIdx: x,
+          subIdx: i,
+          totalInLayer: count,
+          x,
+          y,
+          label,
+          groupName
+        };
+        added.push(sn);
+        sNodes.push(sn);
+      }
+      return added;
+    };
+
+    // 1. Generate SubNodes
+    const inputNodes = addSubNodes('input', null, 4, layerXs.input, 50, 10, 'Input\n(State)');
+    const encNodes = addSubNodes('encoder', encoder || null, 4, layerXs.encoder, 50, 10, 'Encoder');
+    const routNodes = addSubNodes('router', router || null, 4, layerXs.router, 50, 10, 'Router');
+    
+    // Modules are arranged vertically if there are multiple.
+    // To ensure they don't look tiny, we give them a good vertical spread.
+    const modGroups: SubNode[][] = [];
+    const N = modules.length;
+    // Base spacing between modules. If 1 module, it's at center. 
+    // If more, spread them out between y=20 and y=80.
+    const modYSpacing = N > 1 ? Math.min(30, 60 / (N - 1)) : 0;
+    
+    modules.forEach((mod, idx) => {
+      const centerY = 50 + (idx - (N - 1) / 2) * modYSpacing;
+      // Stagger X slightly for dynamic feel, or keep same.
+      const modX = layerXs.modules + (idx % 2 === 1 ? 5 : 0); 
+      const label = `Module ${mod.id.replace('module_', '')}`;
+      const group = addSubNodes(mod.id, mod, 3, modX, centerY, 8, label);
+      modGroups.push(group);
+    });
+
+    const headNodes = addSubNodes('head', head || null, 4, layerXs.head, 50, 10, 'Head');
+    const outputNodes = addSubNodes('output', null, 4, layerXs.output, 50, 10, 'Output\n(Action)');
+
+    // 2. Generate Edges
+    const connectGroups = (group1: SubNode[], group2: SubNode[]) => {
+      // Connect each node in group1 to 2 nodes in group2 to create a dense mesh without total chaos
+      group1.forEach((n1, i1) => {
+        group2.forEach((n2, i2) => {
+          // Sparse connectivity: connect if indices are close or wrap around
+          if (Math.abs(i1 - i2) <= 1 || (i1 === 0 && i2 === group2.length - 1) || group2.length < 3) {
+             sEdges.push({ sourceId: n1.id, targetId: n2.id, x1: n1.x, y1: n1.y, x2: n2.x, y2: n2.y });
+          }
+        });
+      });
+    };
+
+    // Construct the dense mesh based on abstract topology edges
+    // First, pseudo-edges: input -> encoder, head -> output
+    connectGroups(inputNodes, encNodes);
+    connectGroups(headNodes, outputNodes);
+
+    // Now construct edges based on the actual topology
+    topology.edges.forEach(edge => {
+      let g1: SubNode[] = [];
+      let g2: SubNode[] = [];
+      
+      if (edge.source === 'encoder') g1 = encNodes;
+      else if (edge.source === 'router') g1 = routNodes;
+      else if (edge.source.startsWith('module_')) g1 = modGroups[modules.findIndex(m => m.id === edge.source)] || [];
+
+      if (edge.target === 'router') g2 = routNodes;
+      else if (edge.target.startsWith('module_')) g2 = modGroups[modules.findIndex(m => m.id === edge.target)] || [];
+      else if (edge.target === 'head') g2 = headNodes;
+
+      if (g1.length > 0 && g2.length > 0) {
+        connectGroups(g1, g2);
+      }
+    });
+
+    return { subNodes: sNodes, edges: sEdges };
+  }, [topology]);
+
+  // Handle node click (open inspection panel)
+  const handleNodeClick = (e: React.MouseEvent, node: NodeInfo | null) => {
+    if (!node) return;
+    const rect = (e.currentTarget as Element).getBoundingClientRect();
+    const parentRect = (e.currentTarget.parentElement as Element).getBoundingClientRect();
+    
+    setSelectedNode({
+      node,
+      x: rect.left - parentRect.left + rect.width / 2,
+      y: rect.top - parentRect.top + rect.height / 2
+    });
+  };
+
+  const createPath = (x1: number, y1: number, x2: number, y2: number) => {
+    const dx = Math.abs(x2 - x1) * 0.4;
+    return `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+  };
+
+  return (
+    <div className="w-full h-full relative" onClick={() => setSelectedNode(null)}>
+      <svg className="w-full h-full absolute inset-0 pointer-events-none" style={{ overflow: 'visible' }}>
+        
+        {/* Draw Edges */}
+        {edges.map((edge, i) => {
+          const path = createPath(edge.x1, edge.y1, edge.x2, edge.y2);
+          // Make input/output connections dashed and dimmer
+          const isPseudo = edge.sourceId.startsWith('input') || edge.targetId.startsWith('output');
+          const edgeClass = isPseudo 
+            ? "stroke-slate-600/30 stroke-dasharray-[4_4]" 
+            : "stroke-blue-400/20";
+          
+          return (
+            <path 
+              key={`edge-${i}`} 
+              d={path} 
+              fill="none" 
+              className={`${edgeClass} transition-all duration-700 ease-in-out`} 
+              strokeWidth="1.2" 
+            />
+          );
+        })}
+
+        {/* Draw Nodes */}
+        {subNodes.map((sn) => {
+          const isInputOut = !sn.parent;
+          const isModule = sn.parent?.type === 'module';
+          const isNew = sn.parent?.created_step && sn.parent.created_step > 0;
+          const isHovered = selectedNode?.node.id === sn.parent?.id;
+
+          let colorClass = 'text-blue-400 stroke-blue-500 fill-[#091122]'; // darker fill
+          let glowClass = 'drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]';
+
+          if (isInputOut) {
+             colorClass = 'text-slate-500 stroke-slate-600 fill-[#040b16]';
+             glowClass = '';
+          } else if (sn.parent?.type === 'router' || sn.parent?.type === 'head') {
+            colorClass = 'text-purple-400 stroke-purple-500 fill-[#0d091a]';
+            glowClass = 'drop-shadow-[0_0_10px_rgba(168,85,247,0.6)]';
+          } else if (isModule) {
+            if (isNew && sn.parent?.status === 'initializing') {
+              colorClass = 'text-amber-400 stroke-amber-500 fill-[#1a1106] stroke-dashed';
+              glowClass = 'drop-shadow-[0_0_15px_rgba(245,158,11,0.8)] animate-pulse';
+            } else {
+              colorClass = 'text-emerald-400 stroke-emerald-500 fill-[#05140f]';
+              glowClass = 'drop-shadow-[0_0_10px_rgba(16,185,129,0.6)]';
+            }
+          }
+
+          if (isHovered) {
+             glowClass += ' drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]';
+          }
+
+          return (
+            <g 
+              key={sn.id} 
+              className={`transition-all duration-500 ease-in-out origin-center ${glowClass} ${sn.parent ? 'cursor-pointer pointer-events-auto hover:scale-125' : ''}`}
+              onClick={(e) => handleNodeClick(e, sn.parent)}
+            >
+              <circle cx={`${sn.x}%`} cy={`${sn.y}%`} r="1.5%" className={`${colorClass} stroke-[1.5px] transition-all duration-500`} />
+              {/* Inner core */}
+              <circle cx={`${sn.x}%`} cy={`${sn.y}%`} r="0.5%" className="fill-white opacity-50 pointer-events-none" />
+              
+              {/* Optional Label */}
+              {sn.label && (
+                <text 
+                  x={`${sn.x}%`} 
+                  y={`${sn.y + 10}%`} 
+                  textAnchor="middle" 
+                  className={`text-[10px] font-mono pointer-events-none transition-all duration-500 ${
+                     isNew && sn.parent?.status === 'initializing' ? 'fill-amber-400 font-bold' : 'fill-slate-400'
+                  }`}
+                >
+                  {sn.label.split('\n').map((line, i) => (
+                    <tspan key={i} x={`${sn.x}%`} dy={i === 0 ? 0 : "1.2em"}>{line}</tspan>
+                  ))}
+                </text>
+              )}
+            </g>
+          );
+        })}
+      </svg>
+
+      {/* HTML Overlay for interactions */}
+      <div className="absolute inset-0 pointer-events-none">
+        {selectedNode && (
+          <ModuleInspectionPanel 
+            node={selectedNode.node} 
+            x={selectedNode.x} 
+            y={selectedNode.y} 
+            onClose={() => setSelectedNode(null)} 
+          />
+        )}
+      </div>
+
+    </div>
+  );
+};

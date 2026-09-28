@@ -1,0 +1,10 @@
+{
+  "checkpoint_id": "ckpt_HierarchicalNavigation_L0_stopped",
+  "metadata": {
+    "task": "HierarchicalNavigation_L0"
+  },
+  "active_module_ids": [
+    "module_A"
+  ],
+  "has_phase2": false
+}

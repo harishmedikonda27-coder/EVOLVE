@@ -1,0 +1,434 @@
+[
+  {
+    "experiment": "consequence",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "FIXED",
+    "seed": 123,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "FIXED",
+    "seed": 2026,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "FIXED",
+    "seed": 42,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 123,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 2026,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "consequence",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 42,
+    "tasks_executed": 6
+  },
+  {
+    "experiment": "flagship",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 100,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "FIXED",
+    "seed": 100,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "FIXED",
+    "seed": 2026,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "FIXED",
+    "seed": 42,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 100,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 100,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 2026,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "flagship",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 42,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "FIXED",
+    "seed": 123,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "FIXED",
+    "seed": 2026,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "FIXED",
+    "seed": 42,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 123,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 2026,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "forgetting",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 42,
+    "tasks_executed": 4
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "FIXED",
+    "seed": 123,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "FIXED",
+    "seed": 2026,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "FIXED",
+    "seed": 42,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 123,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 2026,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "learned_policy",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 42,
+    "tasks_executed": 8
+  },
+  {
+    "experiment": "ood",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "FIXED",
+    "seed": 123,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "FIXED",
+    "seed": 2026,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "FIXED",
+    "seed": 42,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 123,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 2026,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "ood",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 42,
+    "tasks_executed": 2
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "DETERMINISTIC_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "FIXED",
+    "seed": 123,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "FIXED",
+    "seed": 2026,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "FIXED",
+    "seed": 42,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 123,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 2026,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "LEARNED_EVOLVE",
+    "seed": 42,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 123,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 2026,
+    "tasks_executed": 10
+  },
+  {
+    "experiment": "plasticity",
+    "condition": "RANDOM_VALID_ACTION",
+    "seed": 42,
+    "tasks_executed": 10
+  }
+]

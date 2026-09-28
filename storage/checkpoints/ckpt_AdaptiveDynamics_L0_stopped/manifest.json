@@ -1,0 +1,9 @@
+{
+  "checkpoint_id": "ckpt_AdaptiveDynamics_L0_stopped",
+  "metadata": {
+    "task": "AdaptiveDynamics_L0"
+  },
+  "active_module_ids": [
+    "module_A"
+  ]
+}
